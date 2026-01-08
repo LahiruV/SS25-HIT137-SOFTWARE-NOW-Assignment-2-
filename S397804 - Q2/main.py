@@ -1,3 +1,7 @@
+"""
+Entry point for the program.
+Loads data, runs analyses and writes output files.
+"""
 from data_loader import load_all_files
 from analysis import seasonal_averages, station_ranges, station_stability
 from writers import write_average_file, write_range_file, write_stability_file
