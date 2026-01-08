@@ -1,3 +1,7 @@
+"""
+Handles writing analysis results into output text files.
+"""
+
 import pandas as pd
 
 
