@@ -26,7 +26,7 @@ def load_all_files(folder_name: str = "temperatures") -> pd.DataFrame:
     """
     folder = Path(folder_name)
 
-        # Check folder exists
+    # Check folder exists
     if not folder.exists():
         raise FileNotFoundError(f"{folder_name} folder not found")
 
