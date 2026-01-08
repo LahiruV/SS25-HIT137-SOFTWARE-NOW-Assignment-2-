@@ -7,7 +7,7 @@ from pathlib import Path
 import pandas as pd
 from config import MONTHS
 
-def load_all_files(folder_name: str = "temperatures") -> pd.DataFrame:
+def load_all_files(folder_name: str = "temperatures"):
     """
     Load all CSV files in the given folder and combine them into one DataFrame.
 
