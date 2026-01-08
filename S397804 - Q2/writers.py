@@ -6,8 +6,8 @@ def write_average_file(averages: dict[str, float], filename: str = "average_temp
     Write seasonal averages into a text file.
 
     Args:
-        averages: Dict of season -> average temp.
-        filename: Output file name.
+        Dict of season.
+        Output file name.
     """
     with open(filename, "w") as file:
         for season in ["Summer", "Autumn", "Winter", "Spring"]:
@@ -32,3 +32,21 @@ def write_range_file(ranges: pd.DataFrame, filename: str = "largest_temp_range_s
                 f"{name}: Range {row['range']:.1f}°C "
                 f"(Max: {row['max']:.1f}°C, Min: {row['min']:.1f}°C)\n"
             )
+
+def write_stability_file(std_dev: pd.Series, filename: str = "temperature_stability_stations.txt"):
+    """
+    Write the most stable and most variable stations based on std deviation.
+
+    Args:
+        Series indexed by station name with std dev values.
+        Output file name.
+    """
+    min_std = std_dev.min()
+    max_std = std_dev.max()
+
+    with open(filename, "w") as file:
+        for name, value in std_dev[std_dev == min_std].items():
+            file.write(f"Most Stable: {name}: StdDev {value:.1f}°C\n")
+
+        for name, value in std_dev[std_dev == max_std].items():
+            file.write(f"Most Variable: {name}: StdDev {value:.1f}°C\n")
