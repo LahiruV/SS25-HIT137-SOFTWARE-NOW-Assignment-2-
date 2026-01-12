@@ -83,3 +83,6 @@ if __name__ == "__main__":
             # This part helps you see exactly what went wrong
             with open(RAW_FILE, "r") as f: print(f"Expected: {f.read().strip()}")
             with open(DECRYPTED_FILE, "r") as f: print(f"Got:      {f.read().strip()}")
+                        
+    except ValueError:
+        print("Please enter valid integers for the shifts.")
