@@ -20,3 +20,19 @@ def encrypt_char(ch, shift1, shift2):
     
     # Return special characters (spaces, punctuation) unchanged
     return ch
+
+def decrypt_char(ch, shift1, shift2):
+    # Process Lowercase: shift backward by shift1
+    if 'a' <= ch <= 'z':
+        pos = ord(ch) - ord('a')
+        new_pos = (pos - shift1) % 26
+        return chr(new_pos + ord('a'))
+    
+    # Process Uppercase: shift backward by shift2
+    elif 'A' <= ch <= 'Z':
+        pos = ord(ch) - ord('A')
+        new_pos = (pos - shift2) % 26
+        return chr(new_pos + ord('A'))
+    
+    # Return special characters unchanged
+    return ch
