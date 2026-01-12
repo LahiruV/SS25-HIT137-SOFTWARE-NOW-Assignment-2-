@@ -48,3 +48,14 @@ def encrypt_file(shift1, shift2):
     
     with open(ENCRYPTED_FILE, "w") as f:
         f.write(encrypted)
+
+def decrypt_file(shift1, shift2):
+    if not os.path.exists(ENCRYPTED_FILE):
+        return
+    with open(ENCRYPTED_FILE, "r") as f:
+        text = f.read()
+    
+    decrypted = "".join(decrypt_char(c, shift1, shift2) for c in text)
+    
+    with open(DECRYPTED_FILE, "w") as f:
+        f.write(decrypted)
