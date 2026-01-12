@@ -59,3 +59,10 @@ def decrypt_file(shift1, shift2):
     
     with open(DECRYPTED_FILE, "w") as f:
         f.write(decrypted)
+
+def verify_decryption():
+    if not os.path.exists(RAW_FILE) or not os.path.exists(DECRYPTED_FILE):
+        return False
+    with open(RAW_FILE, "r") as f1, open(DECRYPTED_FILE, "r") as f2:
+        # strip() is used to avoid failure due to trailing empty lines
+        return f1.read().strip() == f2.read().strip()
