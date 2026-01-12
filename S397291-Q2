@@ -31,3 +31,6 @@ def setup_test_environment():
 
 
     print("Test folder and CSV created.")
+
+
+print("testing")
