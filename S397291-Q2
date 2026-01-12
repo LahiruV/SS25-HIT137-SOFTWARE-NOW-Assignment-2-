@@ -65,4 +65,8 @@ def process_climate_records():
     clean_records['Date'] = pd.to_datetime(clean_records['Date'])
     # converts date column
 
+# Seasonal Mapping
+season_map = {12:'Summer', 1:'Summer', 2:'Summer', 3:'Autumn', 4:'Autumn', 
+                  5:'Autumn', 6:'Winter', 7:'Winter', 8:'Winter', 9:'Spring', 10:'Spring', 11:'Spring'}
+clean_records['Period'] = clean_records['Date'].dt.month.map(season_map)
 
