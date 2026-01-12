@@ -33,4 +33,36 @@ def setup_test_environment():
         # writes data into the csv file
     print("Test folder and CSV created.")
 
+# --- PART 2: YOUR ANALYSIS CODE ---
+def process_climate_records():
+# defines function to analyze climate data
+    """
+    it reads climate CSV files and performs temperature analysis.
+    
+    the function calculates seasonal averages, temperature ranges
+    for each station, and identifies stable and unstable stations.
+    Results are saved into text files.
+    """
+    target_dir = Path("temperatures")
+    # sets path for data folder
+    all_csv_files = list(target_dir.glob("*.csv"))
+    # collects all csv files in folder
+
+    if not all_csv_files:
+    # checks if no csv files are found
+        print("Alert: No data files located.")
+        return
+
+    record_stack = [pd.read_csv(f) for f in all_csv_files]
+    # reads all csv files into list
+
+    master_table = pd.concat(record_stack, ignore_index=True)
+    # combines all dataframes
+
+    clean_records = master_table.dropna(subset=['Temperature']).copy()
+    # removes empty temps
+
+    clean_records['Date'] = pd.to_datetime(clean_records['Date'])
+    # converts date column
+
 
