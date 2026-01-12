@@ -33,4 +33,11 @@ def main():
     length = int(input("Enter the side length: "))
     depth = int(input("Enter the recursion depth: "))
 
+    # Turtle Setup
+    screen = turtle.Screen()
+    screen.bgcolor("white")
 
+    t = turtle.Turtle()
+    t.speed(0)
+    t.color("black")
+    t.pensize(2)
