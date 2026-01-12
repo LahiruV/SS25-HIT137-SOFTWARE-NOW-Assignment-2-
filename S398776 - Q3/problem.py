@@ -53,3 +53,6 @@ def main():
     t.hideturtle()
     turtle.done()
 
+
+# ---------------- RUN ----------------
+main()
