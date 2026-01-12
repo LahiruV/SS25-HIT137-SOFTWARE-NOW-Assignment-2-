@@ -41,3 +41,9 @@ def main():
     t.speed(0)
     t.color("black")
     t.pensize(2)
+    
+    # Center the polygon
+    t.penup()
+    t.goto(-length / 2, length / 3)
+    t.pendown()
+
