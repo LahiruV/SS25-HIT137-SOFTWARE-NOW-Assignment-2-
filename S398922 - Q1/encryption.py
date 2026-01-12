@@ -75,3 +75,11 @@ if __name__ == "__main__":
 
         encrypt_file(s1, s2)
         decrypt_file(s1, s2)
+
+        if verify_decryption():
+            print("\nDecryption successful! ✅")
+        else:
+            print("\nDecryption failed ❌")
+            # This part helps you see exactly what went wrong
+            with open(RAW_FILE, "r") as f: print(f"Expected: {f.read().strip()}")
+            with open(DECRYPTED_FILE, "r") as f: print(f"Got:      {f.read().strip()}")
