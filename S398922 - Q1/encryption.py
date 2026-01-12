@@ -66,3 +66,12 @@ def verify_decryption():
     with open(RAW_FILE, "r") as f1, open(DECRYPTED_FILE, "r") as f2:
         # strip() is used to avoid failure due to trailing empty lines
         return f1.read().strip() == f2.read().strip()
+
+# ---------------- MAIN PROGRAM ----------------
+if __name__ == "__main__":
+    try:
+        s1 = int(input("Enter shift1: "))
+        s2 = int(input("Enter shift2: "))
+
+        encrypt_file(s1, s2)
+        decrypt_file(s1, s2)
