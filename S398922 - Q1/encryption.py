@@ -36,3 +36,15 @@ def decrypt_char(ch, shift1, shift2):
     
     # Return special characters unchanged
     return ch
+
+def encrypt_file(shift1, shift2):
+    if not os.path.exists(RAW_FILE):
+        print(f"File not found: {RAW_FILE}")
+        return
+    with open(RAW_FILE, "r") as f:
+        text = f.read()
+    
+    encrypted = "".join(encrypt_char(c, shift1, shift2) for c in text)
+    
+    with open(ENCRYPTED_FILE, "w") as f:
+        f.write(encrypted)
