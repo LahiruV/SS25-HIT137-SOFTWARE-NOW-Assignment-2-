@@ -47,3 +47,9 @@ def main():
     t.goto(-length / 2, length / 3)
     t.pendown()
 
+    # Draw pattern
+    draw_polygon(t, sides, length, depth)
+
+    t.hideturtle()
+    turtle.done()
+
