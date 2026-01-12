@@ -26,11 +26,11 @@ def setup_test_environment():
 2025-07-20,Station_A,12.5
 2025-10-05,Station_B,28.5
 2025-12-25,Station_A,35.2"""
-    
-   
 
-
+    with open(folder / "weather_2025.csv", "w") as f:
+    # opens csv file in write mode
+        f.write(csv_data)
+        # writes data into the csv file
     print("Test folder and CSV created.")
 
 
-print("testing")
