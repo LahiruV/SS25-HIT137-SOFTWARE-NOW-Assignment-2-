@@ -84,3 +84,20 @@ clean_records['Period'] = clean_records['Date'].dt.month.map(season_map)
                 f.write(f"{label}: {periodic_means[label]:.1f}°C\n")
                 # writes average value
 
+ # 2. Temperature Range
+    site_stats = clean_records.groupby('Station')['Temperature'].agg(['max', 'min'])
+    # max/min
+    site_stats['Span'] = site_stats['max'] - site_stats['min']
+    # calculates temperature range
+    peak_span = site_stats['Span'].max()
+    # finds the largest temperaturerange
+    widest_spread = site_stats[site_stats['Span'] == peak_span]
+    # filters station with max range
+    
+    with open('largest_temp_range_station.txt', 'w') as f:  
+    # opens file for writing
+        for site_id, stats in widest_spread.iterrows():
+        # loops through station data
+            f.write(f"Station {site_id}: Range {stats['Span']:.1f}°C\n")
+            # writes result
+
