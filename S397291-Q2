@@ -70,3 +70,17 @@ season_map = {12:'Summer', 1:'Summer', 2:'Summer', 3:'Autumn', 4:'Autumn',
                   5:'Autumn', 6:'Winter', 7:'Winter', 8:'Winter', 9:'Spring', 10:'Spring', 11:'Spring'}
 clean_records['Period'] = clean_records['Date'].dt.month.map(season_map)
 
+ # 1. Seasonal Average
+    periodic_means = clean_records.groupby('Period')['Temperature'].mean()
+    # average per season
+
+    with open('average_temp.txt', 'w') as f:
+    # opens text file for writing results
+        for label in ['Summer', 'Autumn', 'Winter', 'Spring']:
+
+        #loops through  season
+            if label in periodic_means:
+            # checks if season exists in data
+                f.write(f"{label}: {periodic_means[label]:.1f}°C\n")
+                # writes average value
+
