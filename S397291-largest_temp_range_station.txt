@@ -1,0 +1,1 @@
+Station Station_A: Range 22.7°C
