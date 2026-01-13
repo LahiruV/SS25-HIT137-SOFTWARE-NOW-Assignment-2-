@@ -113,5 +113,19 @@ clean_records['Period'] = clean_records['Date'].dt.month.map(season_map)
 
     print("Analysis complete! Check the .txt files in the file sidebar.")
 
+# Run everything
+if __name__ == "__main__":
+# checks if file is run directly
+    """
+    it is the main execution point of the program.
+    
+    this runs the setup function first an then performs the climate data analysis.
+    """
+    setup_test_environment()
+    # calls function to create test data
+    process_climate_records()
+    # calls function to analyze data
+
+
 
 
