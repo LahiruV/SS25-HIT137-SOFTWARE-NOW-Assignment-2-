@@ -101,3 +101,17 @@ clean_records['Period'] = clean_records['Date'].dt.month.map(season_map)
             f.write(f"Station {site_id}: Range {stats['Span']:.1f}°C\n")
             # writes result
 
+ # 3. Stability
+    volatility = clean_records.groupby('Station')['Temperature'].std()
+    # calculates std dev
+    with open('temperature_stability_stations.txt', 'w') as f:
+    # opens output file
+        f.write(f"Most Stable: Station {volatility.idxmin()}: StdDev {volatility.min():.1f}°C\n")
+        # stable station
+        f.write(f"Most Variable: Station {volatility.idxmax()}: StdDev {volatility.max():.1f}°C\n")
+        # variable station
+
+    print("Analysis complete! Check the .txt files in the file sidebar.")
+
+
+
