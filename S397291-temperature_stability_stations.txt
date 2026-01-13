@@ -1,2 +1,3 @@
-Most Stable: Station Station_B: StdDev 1.1°C
-Most Variable: Station Station_A: StdDev 10.4°C
+Most Stable: Station Station_B: StdDev 1.1Â°C
+Most Variable: Station Station_A: StdDev 10.4Â°C
+
