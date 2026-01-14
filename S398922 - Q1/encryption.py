@@ -116,9 +116,9 @@ if __name__ == "__main__":
         decrypt_file(s1, s2)
 
         if verify_decryption():
-            print("\nDecryption successful! ✅")
+            print("\nDecryption successful!")
         else:
-            print("\nDecryption failed ❌")
+            print("\nDecryption failed")
             with open(RAW_FILE, "r") as f:
                 print(f"Expected: {f.read().strip()}")
             with open(DECRYPTED_FILE, "r") as f:
